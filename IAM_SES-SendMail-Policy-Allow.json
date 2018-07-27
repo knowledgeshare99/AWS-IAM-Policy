@@ -1,0 +1,49 @@
+{
+    "Sid": "stmt1531292926988",
+    "Effect": "Allow",
+    "Action": [
+        "ses:SendEmail",
+        "ses:SendRawEmail"
+    ],
+    "Resource": "arn:aws:ses:us-west-2:accountID:identity/rxx@gmail.com"
+}
+
+{
+    "Sid": "stmt1531292926988",
+    "Effect": "Allow",
+    "Action": [
+        "ses:SendEmail",
+        "ses:SendRawEmail"
+    ],
+    "Resource": "arn:aws:ses:us-west-2:accountID:identity/r@ghmail.com"
+}
+
+
+
+===========
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "sns:Publish",
+            "Resource": "*"
+        },
+        {
+            "Sid": "stmt1531292926988",
+            "Effect": "Allow",
+            "Action": [
+                "ses:SendEmail",
+                "ses:SendRawEmail"
+            ],
+            "Resource": [
+                "arn:aws:ses:us-west-2:accountID:identity/xxx@gmail.com",
+                "arn:aws:ses:us-west-2:accountID:identity/ffff@gmail.com"
+            ]
+        }
+    ]
+}
+
+
+============
