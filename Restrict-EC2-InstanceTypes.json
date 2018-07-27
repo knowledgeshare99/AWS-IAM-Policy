@@ -1,0 +1,55 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowDescribeForAllResources",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "OnlyAllowCertainInstanceTypesToBeCreatedOnSpecificRegion",
+            "Effect": "Deny",
+            "Action": [
+                "ec2:RunInstances"
+            ],
+            "Resource": [
+                "arn:aws:ec2:us-west-2:accountID:instance/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "ec2:InstanceType": [
+                        "t2.small",
+                        "t2.micro",
+                        "t2.medium"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "AllowAdditionalResourcesToSupportLaunchingEC2ClassicInstances",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:RunInstances"
+            ],
+            "Resource": [
+                "arn:aws:ec2:us-west-2:accountID:key-pair/*",
+                "arn:aws:ec2:us-west-2:accountID:security-group/*",
+                "arn:aws:ec2:us-west-2:accountID:volume/*",
+                "arn:aws:ec2:us-west-2::image/ami-*"
+            ]
+        },
+        {
+            "Sid": "AllowUserToStopStartDeleteInstances",
+            "Action": [
+                "ec2:TerminateInstances",
+                "ec2:StopInstances",
+                "ec2:StartInstances"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:ec2:us-west-2:accountID:instance/*"
+        }
+    ]
+}
