@@ -1,0 +1,43 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowDescribeForAllResources",
+            "Effect": "Allow",
+            "Action": [
+                "rds:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "OnlyAllowCertainInstanceTypesToBeCreatedOnSpecificRegion",
+            "Effect": "Deny",
+            "Action": [
+                "rds:CreateDBInstance"
+            ],
+            "Resource": [
+                "arn:aws:rds:us-west-2:AccountID:db:*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "rds:DatabaseClass": [
+                        "db.t2.micro"
+                    ]
+                },
+                "Bool": {
+                    "rds:MultiAz": false
+                }
+            }
+        },
+        {
+            "Effect": "Deny",
+            "Action": "rds:CreateDBInstance",
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "rds:Region": "us-west-2"
+                }
+            }
+        }
+    ]
+}
