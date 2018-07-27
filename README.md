@@ -7,7 +7,7 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html
 https://forums.aws.amazon.com/message.jspa?messageID=749601
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-ec2-console.html
 
-# RDS - policies
+# RDS - policies allow and restrict
 https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.AccessControl.IdentityBased.html
 https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.Conditions.html
-
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.Conditions.html
